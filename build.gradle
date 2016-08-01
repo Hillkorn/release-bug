@@ -13,3 +13,9 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
+
+release {
+    failOnCommitNeeded = false
+    failOnPublishNeeded = false
+    failOnUnversionedFiles = false
+}
