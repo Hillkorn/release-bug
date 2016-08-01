@@ -15,7 +15,26 @@ dependencies {
 }
 
 release {
-    failOnCommitNeeded = false
-    failOnPublishNeeded = false
-    failOnUnversionedFiles = false
+    failOnCommitNeeded = true
+    failOnPublishNeeded = true
+    failOnSnapshotDependencies = true
+    failOnUnversionedFiles = true
+    failOnUpdateNeeded = true
+    revertOnFail = true
+    preCommitText = ''
+    preTagCommitMessage = '[Gradle Release Plugin] - pre tag commit: '
+    tagCommitMessage = 'JenkinsReleaseBuildTag: '
+    newVersionCommitMessage = '[Gradle Release Plugin] - new version commit: '
+    //tagging the release using product.release, build.no, and version
+    tagTemplate = "${ant.properties['product.release']}.${ant.properties['build.no']}-${version}"
+    versionPropertyFile = 'gradle.properties'
+    versionProperties = []
+    buildTasks = ['clean']
+
+    git {
+        requireBranch = 'development'
+        pushToRemote = 'origin'
+
+        pushToBranchPrefix = ''
+    }
 }
