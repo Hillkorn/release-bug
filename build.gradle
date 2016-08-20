@@ -1,21 +1,99 @@
-plugins {
-    id 'net.researchgate.release' version '2.4.0'
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+        javaVersion = '1.8'
+        springVersion = '4.1.6.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url 'fooboar/artifactory/' }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:+"
+        classpath 'net.researchgate:gradle-release:2.+'
+    }
+}
+
+allprojects {
+    apply plugin: "com.jfrog.artifactory"
+    apply plugin: 'net.researchgate.release'
 }
 
 apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
-repositories {
-    jcenter()
+
+group 'com.company.foo.services'
+
+springBoot {
+    executable = true
 }
 
-dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.21'
+jar {
+    baseName = 'my-awesome-app'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-    testCompile 'junit:junit:4.12'
+repositories {
+    mavenLocal()
+    maven { url 'foobar/artifactory/repo/' }
+    mavenCentral()
+}
+
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"
+}
+
+artifactory {
+    contextUrl = "http://foobar/artifactory"
+    publish {
+        repository {
+            repoKey = 'sandbox'
+            maven = true
+            username = "awesome"
+            password = "dfaertewdeec"
+        }
+        defaults {
+            publications ('mavenJava')
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'sandbox'
+            maven = true
+            username = 'awesome'
+            password = '3235325325'
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
 
 release {
     failOnCommitNeeded = false
     failOnPublishNeeded = false
+    failOnSnapshotDependencies = false
     failOnUnversionedFiles = false
+    git {
+        requireBranch = 'afterRelease'
+    }
 }
+
+afterReleaseBuild.dependsOn artifactoryPublish
