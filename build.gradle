@@ -97,3 +97,5 @@ release {
 }
 
 afterReleaseBuild.dependsOn artifactoryPublish
+
+wrapper.gradleVersion = '2.13'
