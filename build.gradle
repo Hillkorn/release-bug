@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'net.researchgate:gradle-release:2.4.1'
+        classpath 'net.researchgate:gradle-release:2.4.2-SNAPSHOT'
     }
 }
 
@@ -22,7 +22,7 @@ dependencies {
 }
 
 release {
-    failOnCommitNeeded = false
-    failOnPublishNeeded = false
-    failOnUnversionedFiles = false
+//    failOnCommitNeeded = false
+//    failOnPublishNeeded = false
+//    failOnUnversionedFiles = false
 }
