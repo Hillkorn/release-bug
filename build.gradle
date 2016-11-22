@@ -22,7 +22,7 @@ dependencies {
 }
 
 release {
-//    failOnCommitNeeded = false
-//    failOnPublishNeeded = false
-//    failOnUnversionedFiles = false
+    failOnCommitNeeded = false
+    failOnPublishNeeded = false
+    failOnUnversionedFiles = false
 }
