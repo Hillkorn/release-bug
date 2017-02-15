@@ -27,11 +27,15 @@ release {
     failOnUnversionedFiles = false
 }
 
+project(':sub')
 task testing {
     doFirst {
         println 'F Version is ' + project.version
+        println t
     }
     println 'Version is ' + project.version
+    def t = ['version', project.version]
+    println t
 }
 
-commitNewVersion.dependsOn testing
+commitNewVersion.dependsOn sub:testing
