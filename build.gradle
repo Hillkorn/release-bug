@@ -26,3 +26,12 @@ release {
     failOnPublishNeeded = false
     failOnUnversionedFiles = false
 }
+
+task testing {
+    doFirst {
+        println 'F Version is ' + project.version
+    }
+    println 'Version is ' + project.version
+}
+
+commitNewVersion.dependsOn testing
