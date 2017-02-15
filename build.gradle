@@ -32,6 +32,7 @@ project(':sub') {
         def t = ['version', project.version]
         println t
         doFirst {
+            t = ['version', project.version]
             println 'F Version is ' + project.version
             println t
         }
