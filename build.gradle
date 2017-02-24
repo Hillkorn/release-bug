@@ -28,6 +28,12 @@ release {
     failOnUnversionedFiles = false
 }
 
+createReleaseTag {
+    doFirst {
+        tagTemplate = "v${version}"
+    }
+}
+
 // project(':sub') {
 //     task testing {
 //         def t = ['version', project.version]
