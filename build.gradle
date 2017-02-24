@@ -29,8 +29,8 @@ release {
 }
 
 createReleaseTag {
-    project.release.tagTemplate = "v${version}"
     doFirst {
+        project.release.tagTemplate = "v${version}"
     }
 }
 
