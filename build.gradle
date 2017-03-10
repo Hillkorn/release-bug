@@ -26,6 +26,9 @@ release {
     failOnCommitNeeded = false
     failOnPublishNeeded = false
     failOnUnversionedFiles = false
+    git {
+      signTag = true
+    }
 }
 
 createReleaseTag {
