@@ -22,22 +22,29 @@ dependencies {
 }
 
 release {
+    tagTemplate = "v${version}"
     failOnCommitNeeded = false
     failOnPublishNeeded = false
     failOnUnversionedFiles = false
 }
 
-project(':sub') {
-    task testing {
-        def t = ['version', project.version]
-        println t
-        doFirst {
-            t = ['version', project.version]
-            println 'F Version is ' + project.version
-            println t
-        }
-        println 'Version is ' + project.version
+createReleaseTag {
+    doFirst {
+        project.release.tagTemplate = "v${version}"
     }
 }
 
-commitNewVersion.dependsOn 'sub:testing'
+// project(':sub') {
+//     task testing {
+//         def t = ['version', project.version]
+//         println t
+//         doFirst {
+//             t = ['version', project.version]
+//             println 'F Version is ' + project.version
+//             println t
+//         }
+//         println 'Version is ' + project.version
+//     }
+// }
+//
+// commitNewVersion.dependsOn 'sub:testing'
