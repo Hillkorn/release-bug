@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'net.researchgate:gradle-release:2.5.1-SNAPSHOT'
+        classpath 'net.researchgate:gradle-release:2.5.0'
     }
 }
 
@@ -27,7 +27,7 @@ release {
     failOnPublishNeeded = false
     failOnUnversionedFiles = false
     git {
-      signTag = true
+//      signTag = true
     }
 }
 
