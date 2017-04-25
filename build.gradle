@@ -27,6 +27,7 @@ release {
     failOnPublishNeeded = false
     failOnUnversionedFiles = false
     git {
+        pushToBranch = 'master'
 //      signTag = true
     }
 }
