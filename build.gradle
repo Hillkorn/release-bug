@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'net.researchgate:gradle-release:2.7.0-SNAPSHOT'
+        classpath 'net.researchgate:gradle-release:2.6.0'
     }
 }
 
@@ -27,13 +27,14 @@ release {
     failOnCommitNeeded = false
     failOnPublishNeeded = false
     failOnUnversionedFiles = false
-    git {
-        pushToBranch = 'master'
-//      signTag = true
-    }
     scmAdapters = [
         net.researchgate.release.GitAdapter
     ]
+
+    git {
+//        pushToBranch = 'master'
+//      signTag = true
+    }
 }
 /*
 createReleaseTag {
