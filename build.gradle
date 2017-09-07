@@ -30,7 +30,7 @@ release {
         net.researchgate.release.GitAdapter
     ]
 
-    useSnapshotVersion = true
+    // useSnapshotVersion = true
 
     git {
 //        pushToBranch = 'master'
