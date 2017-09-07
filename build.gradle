@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'net.researchgate:gradle-release:2.6.0'
+        classpath 'net.researchgate:gradle-release:2.7.0-SNAPSHOT'
     }
 }
 
@@ -14,7 +14,6 @@ apply plugin: 'net.researchgate.release'
 repositories {
     jcenter()
 }
-
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
@@ -30,6 +29,8 @@ release {
     scmAdapters = [
         net.researchgate.release.GitAdapter
     ]
+
+    useSnapshotVersion = true
 
     git {
 //        pushToBranch = 'master'
