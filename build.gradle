@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'net.researchgate:gradle-release:2.7.0-SNAPSHOT'
+        classpath 'net.researchgate:gradle-release:2.6.0'
     }
 }
 
@@ -33,6 +33,7 @@ release {
     // useSnapshotVersion = true
 
     git {
+        requireBranch = 'branch_test'
 //        pushToBranch = 'master'
 //      signTag = true
     }
