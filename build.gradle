@@ -33,7 +33,6 @@ release {
     // useSnapshotVersion = true
 
     git {
-        pushToRemote = false
 //        pushToBranch = 'master'
 //      signTag = true
     }
