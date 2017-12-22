@@ -46,6 +46,7 @@ release {
 
     // useSnapshotVersion = true
     versionPropertyFile = 'version.properties'
+    commitVersionFileOnly = true
     git {
 
 //        pushToBranch = 'master'
@@ -62,17 +63,25 @@ createReleaseTag {
     }
 }*/
 
-// project(':sub') {
-//     task testing {
-//         def t = ['version', project.version]
-//         println t
-//         doFirst {
-//             t = ['version', project.version]
-//             println 'F Version is ' + project.version
-//             println t
-//         }
-//         println 'Version is ' + project.version
-//     }
-// }
+project(':sub') {
+    task testing {
+        def t = ['version', project.version]
+        println t
+        doFirst {
+            t = ['version', project.version]
+            println 'F Version is ' + project.version
+            println t
+        }
+        println 'Version is ' + project.version
+    }
+
+    apply plugin: 'net.researchgate.release'
+
+    release {
+        versionPropertyFile = 'version.properties'
+        commitVersionFileOnly
+    }
+
+}
 //
 // commitNewVersion.dependsOn 'sub:testing'
