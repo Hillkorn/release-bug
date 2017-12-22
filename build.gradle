@@ -43,11 +43,11 @@ release {
     scmAdapters = [
         net.researchgate.release.GitAdapter
     ]
-
+    buildTasks = []
     // useSnapshotVersion = true
     versionPropertyFile = 'version.properties'
-    commitVersionFileOnly = true
     git {
+        commitVersionFileOnly = true
 
 //        pushToBranch = 'master'
 //      signTag = true
@@ -64,6 +64,7 @@ createReleaseTag {
 }*/
 
 project(':sub') {
+    apply plugin: 'base'
     task testing {
         def t = ['version', project.version]
         println t
@@ -79,7 +80,9 @@ project(':sub') {
 
     release {
         versionPropertyFile = 'version.properties'
-        commitVersionFileOnly
+        git {
+            commitVersionFileOnly = true
+        }
     }
 
 }
