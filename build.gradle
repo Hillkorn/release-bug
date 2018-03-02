@@ -9,7 +9,6 @@ buildscript {
 }
 
 apply plugin: 'maven'
-
 apply plugin: 'java'
 apply plugin: 'net.researchgate.release'
 
@@ -45,7 +44,7 @@ release {
     ]
     buildTasks = []
     // useSnapshotVersion = true
-    versionPropertyFile = 'version.properties'
+//    versionPropertyFile = project.file('version.properties')
     git {
         commitVersionFileOnly = true
 
@@ -63,28 +62,28 @@ createReleaseTag {
     }
 }*/
 
-project(':sub') {
-    apply plugin: 'base'
-    task testing {
-        def t = ['version', project.version]
-        println t
-        doFirst {
-            t = ['version', project.version]
-            println 'F Version is ' + project.version
-            println t
-        }
-        println 'Version is ' + project.version
-    }
-
-    apply plugin: 'net.researchgate.release'
-
-    release {
-        versionPropertyFile = 'version.properties'
-        git {
-            commitVersionFileOnly = true
-        }
-    }
-
-}
+//project(':sub') {
+//    apply plugin: 'base'
+//    task testing {
+//        def t = ['version', project.version]
+//        println t
+//        doFirst {
+//            t = ['version', project.version]
+//            println 'F Version is ' + project.version
+//            println t
+//        }
+//        println 'Version is ' + project.version
+//    }
+//
+//    apply plugin: 'net.researchgate.release'
+//
+//    release {
+//        versionPropertyFile = project.file('version.properties')
+//        git {
+//            commitVersionFileOnly = true
+//        }
+//    }
+//
+//}
 //
 // commitNewVersion.dependsOn 'sub:testing'
