@@ -44,7 +44,6 @@ release {
     ]
     buildTasks = []
     // useSnapshotVersion = true
-//    versionPropertyFile = project.file('version.properties')
     git {
         commitVersionFileOnly = true
 
