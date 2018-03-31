@@ -46,7 +46,7 @@ release {
     // useSnapshotVersion = true
     git {
 //        commitVersionFileOnly = true
-        pushReleaseVersionBranch = 'release'
+        // pushReleaseVersionBranch = 'release'
 //        pushToBranch = 'master'
 //      signTag = true
     }
