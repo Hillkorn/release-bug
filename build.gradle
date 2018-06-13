@@ -35,6 +35,7 @@ dependencies {
 }
 
 release {
+    versionProperties = ['myVersion']
 //    tagTemplate = "v${version}"
     failOnCommitNeeded = false
     failOnPublishNeeded = false
