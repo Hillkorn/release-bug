@@ -35,21 +35,15 @@ dependencies {
 }
 
 release {
-    versionProperties = ['myVersion']
-//    tagTemplate = "v${version}"
-    failOnCommitNeeded = false
-    failOnPublishNeeded = false
-    failOnUnversionedFiles = false
     scmAdapters = [
         net.researchgate.release.GitAdapter
     ]
     buildTasks = []
-    // useSnapshotVersion = true
     git {
 //        commitVersionFileOnly = true
         // pushReleaseVersionBranch = 'release'
-//        pushToBranch = 'master'
-//      signTag = true
+        pushToBranch = 'master'
+        signTag = true
     }
 }
 
