@@ -44,7 +44,7 @@ release {
         // pushReleaseVersionBranch = 'release'
 //        pushToBranch = 'master'
         requireBranch = 'master'
-        signTag = true
+//        signTag = true
     }
 }
 
